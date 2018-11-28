@@ -1,0 +1,9 @@
+server:
+  port: 5237
+spring:
+  application:
+    name: langya-gateway
+
+#zuul:
+#  routes:
+#    
