@@ -39,6 +39,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
     </dependencies>
  
     <dependencyManagement>
@@ -83,5 +87,6 @@
     	<module>langya-services</module>
     	<module>langya-eureka-center</module>
     	<module>langya-zuul</module>
+    	<module>langya-services-api</module>
     </modules>
 </project>

@@ -15,8 +15,7 @@ spring:
       server:
         git:
           uri: https://github.com/lucasXiang/langya
-          search-paths:
-            - langya-services
+          search-paths: langya-services,langya-gateway
           default-label: master
           
 eureka:
