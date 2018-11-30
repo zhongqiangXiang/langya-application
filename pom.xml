@@ -102,5 +102,8 @@
 		<module>langya-zuul</module>
 		<module>langya-services-api</module>
 		<module>langya-consumer</module>
+		<module>langya-common</module>
+		<module>langya-stream</module>
+		<module>langya-cache</module>
 	</modules>
 </project>
