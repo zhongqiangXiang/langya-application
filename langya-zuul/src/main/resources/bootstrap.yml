@@ -1,3 +1,5 @@
+server:
+  port: 9090
 spring:
   application:
     name: langya-gateway
@@ -22,5 +24,20 @@ eureka:
     
 ribbon:
   eager-load:
-    enabled: true
+    enabled: false
+  
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  
+  prefix: /langya
+  routes:
+    zuul-url: 
+      path: /langya-consumer/**
+      service-id: LANGYA-CONSUMER
+      
+      
+
+
   

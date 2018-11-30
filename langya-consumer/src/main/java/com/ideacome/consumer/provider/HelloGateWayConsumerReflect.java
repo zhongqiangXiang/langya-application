@@ -1,10 +1,10 @@
-package com.ideacome.zuul.consumer;
+package com.ideacome.consumer.provider;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
+import com.ideacome.consumer.config.FeignConfig;
 import com.ideacome.services.api.GreetingControllerInterface;
-import com.ideacome.zuul.config.FeignConfig;
 
-@FeignClient(value="LANGYA-SERVICES",configuration=FeignConfig.class)
+@FeignClient(value="langya-services",configuration=FeignConfig.class)
 public interface HelloGateWayConsumerReflect extends GreetingControllerInterface{
 }
