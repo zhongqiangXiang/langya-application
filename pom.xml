@@ -40,6 +40,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
@@ -105,5 +109,6 @@
 		<module>langya-common</module>
 		<module>langya-stream</module>
 		<module>langya-cache</module>
+		<module>langya-zipkin</module>
 	</modules>
 </project>
