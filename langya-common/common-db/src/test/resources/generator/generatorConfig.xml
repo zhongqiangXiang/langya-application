@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 在当前根目录下输入命令： mvn mybatis-generator:generate -e 即可生成对应的 类和mapper文件 -->
+<generatorConfiguration>
+	<classPathEntry location="${classPathEntry.mysql.location}" />
+
+	<context id="mysqlTables" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.6:3306/wxb_ins?characterEncoding=utf-8"
+			userId="root" password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.ideacome.common.db.domain"
+			targetProject="${javaModelGenerator.targetProject}">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.ideacome.common.db.mapper"
+			targetProject="${javaModelGenerator.targetProject}">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.ideacome.common.db.persistence" targetProject="${javaClientGenerator.targetProject}">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- <table tableName="live_course_channel" domainObjectName="LiveCourseChannel"></table> -->
+		<table tableName="ins_user" domainObjectName="InsUser"></table>
+		<table tableName="ins_user_ext" domainObjectName="InsUserExt"></table>
+	</context>
+</generatorConfiguration>

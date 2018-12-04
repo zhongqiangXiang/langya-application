@@ -47,8 +47,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -115,6 +115,6 @@
 		<module>langya-common</module>
 		<module>langya-stream</module>
 		<module>langya-cache</module>
-		<module>langya-zipkin</module>
+		<module>langya-monitor</module>
 	</modules>
 </project>
