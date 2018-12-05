@@ -11,7 +11,7 @@ import com.ideacome.common.db.config.DataSourceSwitcher;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 参考类
+ * 参考类 从飞侠过来
  * @author 朱停
  *
  */

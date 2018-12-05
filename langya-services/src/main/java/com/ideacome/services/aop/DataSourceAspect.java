@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -20,9 +21,15 @@ import com.ideacome.common.db.config.DataSourceSwitcher;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 切换数据库的 主从 库 
+ * @author zhuting
+ *
+ */
 @Slf4j
 @Aspect
 @Component
+@Order(0) // 当有事务时，该优先级需高于事务的
 public class DataSourceAspect {
 	@Pointcut("execution(public * com.ideacome.services.bizService.*.*(..))")
 	public void dataSourcePoint() {
@@ -70,6 +77,7 @@ public class DataSourceAspect {
     @After("dataSourcePoint()")  
     public void after(JoinPoint jp){  
     	log.info("方法最后执行.....");  
+    	// 业务逻辑执行完 回复默认的数据库
     	DataSourceSwitcher.clearDataSource();
     }
 }
