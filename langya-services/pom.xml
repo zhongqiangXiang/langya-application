@@ -35,7 +35,7 @@
         </dependency>
         <dependency>
         	<groupId>com.ideacome</groupId>
-        	<artifactId>common-db</artifactId>
+        	<artifactId>common-db-langya</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
 	</dependencies>

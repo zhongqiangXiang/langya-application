@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ideacome.common.db.domain.InsUserExt;
 import com.ideacome.common.db.domain.InsUserExtExample;
-import com.ideacome.common.db.persistence.InsUserExtMapper;
+import com.ideacome.common.db.mapper.InsUserExtMapper;
 
 import lombok.extern.slf4j.Slf4j;
 

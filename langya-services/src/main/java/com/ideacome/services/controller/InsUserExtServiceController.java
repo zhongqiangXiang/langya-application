@@ -11,12 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/insUserExt")
 public class InsUserExtServiceController {
 	@Autowired
 	private InsUserExtService insUserExtServiceImpl;
 	
-	@RequestMapping(name="/getInsUserExt")
+	@RequestMapping("/getInsUserExt")
 	public ResultVO getInsUserExtSelective(Long userId){
 		log.info("InsUserExtServiceController.getInsUserExtSelective：");
 		

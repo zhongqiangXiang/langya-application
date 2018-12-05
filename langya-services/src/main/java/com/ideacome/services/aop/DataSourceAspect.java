@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 public class DataSourceAspect {
-	@Pointcut("execution(public * com.ideacome.services.bizService。。*.*(..))")
+	@Pointcut("execution(public * com.ideacome.services.bizService.*.*(..))")
 	public void dataSourcePoint() {
 	}
 

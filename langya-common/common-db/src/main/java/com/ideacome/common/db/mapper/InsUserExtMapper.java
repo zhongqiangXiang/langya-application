@@ -1,4 +1,4 @@
-package com.ideacome.common.db.persistence;
+package com.ideacome.common.db.mapper;
 
 import com.ideacome.common.db.domain.InsUserExt;
 import com.ideacome.common.db.domain.InsUserExtExample;
