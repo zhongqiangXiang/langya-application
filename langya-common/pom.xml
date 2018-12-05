@@ -11,5 +11,6 @@
   <build/>
   <modules>
   	<module>common-db-langya</module>
+  	<module>common-base</module>
   </modules>
 </project>

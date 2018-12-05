@@ -41,7 +41,3 @@ zuul:
       path: /langya-consumer/**
       service-id: LANGYA-CONSUMER
       
-      
-
-
-  

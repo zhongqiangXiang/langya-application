@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ideacome.services.api.InsUserExtServiceControllerInterface;
 import com.ideacome.services.bizService.InsUserExtService;
 import com.ideacome.services.vo.ResultVO;
 
@@ -11,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-public class InsUserExtServiceController {
+public class InsUserExtServiceController implements InsUserExtServiceControllerInterface{
 	@Autowired
 	private InsUserExtService insUserExtServiceImpl;
 	
-	@RequestMapping("/getInsUserExt")
+	@Override
 	public ResultVO getInsUserExtSelective(Long userId){
 		log.info("InsUserExtServiceController.getInsUserExtSelective：");
 		
