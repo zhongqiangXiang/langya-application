@@ -18,4 +18,11 @@ public class DataSourceVO {
 	private String poolInitialSize;
 	private String poolMaxWait;
 	private String poolMinIdle;
+	private String poolTimeBetweenEvictionRunsMillis;
+	private String poolMinEvictableIdleTimeMillis;
+	private String poolValidationQuery;
+	private String poolTestWhileIdle;
+	private String poolTestOnBorrow;
+	private String poolTestOnReturn;
+	private String poolPreparedStatements;
 }

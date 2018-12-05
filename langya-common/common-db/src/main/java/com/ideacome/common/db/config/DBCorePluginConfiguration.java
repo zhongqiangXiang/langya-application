@@ -40,6 +40,13 @@ public class DBCorePluginConfiguration {
 		dataSourceVO.setPoolMaxActive(dataSourceReaderService.getPropertiesValue("pool.maxActive"));
 		dataSourceVO.setPoolMaxWait(dataSourceReaderService.getPropertiesValue("pool.maxWait"));
 		dataSourceVO.setPoolMinIdle(dataSourceReaderService.getPropertiesValue("pool.minIdle"));
+		dataSourceVO.setPoolPreparedStatements(dataSourceReaderService.getPropertiesValue("pool.preparedStatements"));
+		dataSourceVO.setPoolTimeBetweenEvictionRunsMillis(dataSourceReaderService.getPropertiesValue("pool.timeBetweenEvictionRunsMillis"));
+		dataSourceVO.setPoolMinEvictableIdleTimeMillis(dataSourceReaderService.getPropertiesValue("pool.minEvictableIdleTimeMillis"));
+		dataSourceVO.setPoolTestWhileIdle(dataSourceReaderService.getPropertiesValue("pool.testWhileIdle"));
+		dataSourceVO.setPoolTestOnBorrow(dataSourceReaderService.getPropertiesValue("pool.testOnBorrow"));
+		dataSourceVO.setPoolTestOnReturn(dataSourceReaderService.getPropertiesValue("pool.testOnReturn"));
+		dataSourceVO.setPoolValidationQuery(dataSourceReaderService.getPropertiesValue("pool.validationQuery"));
 		
 		return dataSourceVO;
 	}
@@ -59,7 +66,7 @@ public class DBCorePluginConfiguration {
 		masterDataSource.setInitialSize(Integer.valueOf(dataSourceVO.getPoolInitialSize()));
 		masterDataSource.setMaxWait(Long.valueOf(dataSourceVO.getPoolMaxWait()));
 		masterDataSource.setMinIdle(Integer.valueOf(dataSourceVO.getPoolMinIdle()));
-		initDataSource(masterDataSource);
+		initDataSource(masterDataSource,dataSourceVO);
 		
 		return masterDataSource;
 	}
@@ -77,19 +84,19 @@ public class DBCorePluginConfiguration {
 		slaveDataSource.setInitialSize(Integer.valueOf(dataSourceVO.getPoolInitialSize()));
 		slaveDataSource.setMaxWait(Long.valueOf(dataSourceVO.getPoolMaxWait()));
 		slaveDataSource.setMinIdle(Integer.valueOf(dataSourceVO.getPoolMinIdle()));
-		initDataSource(slaveDataSource);
+		initDataSource(slaveDataSource,dataSourceVO);
 		
 		return slaveDataSource;
 	}
 	
-	private void initDataSource(BasicDataSource basicDataSource){
-		basicDataSource.setTimeBetweenEvictionRunsMillis(3000);
-		basicDataSource.setMinEvictableIdleTimeMillis(300000);
-		basicDataSource.setValidationQuery("SELECT 1");
-		basicDataSource.setTestWhileIdle(true);
-		basicDataSource.setTestOnBorrow(false);
-		basicDataSource.setTestOnReturn(false);
-		basicDataSource.setPoolPreparedStatements(true);
+	private void initDataSource(BasicDataSource basicDataSource,DataSourceVO dataSourceVO){
+		basicDataSource.setTimeBetweenEvictionRunsMillis(Long.valueOf(dataSourceVO.getPoolTimeBetweenEvictionRunsMillis()));
+		basicDataSource.setMinEvictableIdleTimeMillis(Long.valueOf(dataSourceVO.getPoolMinEvictableIdleTimeMillis()));
+		basicDataSource.setValidationQuery(dataSourceVO.getPoolValidationQuery());
+		basicDataSource.setTestWhileIdle(Boolean.valueOf(dataSourceVO.getPoolTestWhileIdle()));
+		basicDataSource.setTestOnBorrow(Boolean.valueOf(dataSourceVO.getPoolTestOnBorrow()));
+		basicDataSource.setTestOnReturn(Boolean.valueOf(dataSourceVO.getPoolTestOnReturn()));
+		basicDataSource.setPoolPreparedStatements(Boolean.valueOf(dataSourceVO.getPoolPreparedStatements()));
 	}
 	
 	@Bean("dataSource")
