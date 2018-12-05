@@ -12,7 +12,7 @@ public class DbLoggingThreadLocalManager {
     /**
      * 存放是否
      */
-    private static final ThreadLocal<Boolean> THREAD_LOCAL_LOGGING = new ThreadLocal();
+    private static final ThreadLocal<Boolean> THREAD_LOCAL_LOGGING = new ThreadLocal<>();
 
 
     /**

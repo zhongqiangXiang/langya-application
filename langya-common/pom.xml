@@ -10,6 +10,6 @@
   <packaging>pom</packaging>
   <build/>
   <modules>
-  	<module>common-db</module>
+  	<module>common-db-langya</module>
   </modules>
 </project>
