@@ -18,7 +18,7 @@ public class InsUserExtGateWayController{
 	@Autowired
 	private InsUserExtGateWayReflect insUserExtGateWayReflect;
 	
-	@HystrixCommand(fallbackMethod = "getInsUserExtBack", commandProperties = {
+	@HystrixCommand(fallbackMethod = "getInsUserExtBackUp", commandProperties = {
 			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000") })
 	@RequestMapping("/getInsUserExt")
 	public ResultVO getInsUserExt(Long userId) {
@@ -26,7 +26,7 @@ public class InsUserExtGateWayController{
 		return insUserExtGateWayReflect.getInsUserExtSelective(userId);
 	}
 
-	public ResultVO getInsUserExtBack(Long userId) {
+	public ResultVO getInsUserExtBackUp(Long userId) {
 
 		return ResultVO.newFailure(ErrorEnum.failure.getErrorCode(), "userId:"+userId+",失败："+ErrorEnum.failure.getErrorMSG());
 	}

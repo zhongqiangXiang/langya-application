@@ -22,18 +22,24 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.ideacome.common.db.mapper"
+		<sqlMapGenerator targetPackage="com.ideacome.common.db.persistence"
 			targetProject="${javaModelGenerator.targetProject}">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.ideacome.common.db.persistence" targetProject="${javaClientGenerator.targetProject}">
+			targetPackage="com.ideacome.common.db.mapper" targetProject="${javaClientGenerator.targetProject}">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 		<!-- <table tableName="live_course_channel" domainObjectName="LiveCourseChannel"></table> -->
-		<table tableName="ins_user" domainObjectName="InsUser"></table>
-		<table tableName="ins_user_ext" domainObjectName="InsUserExt"></table>
+<!-- 		<table tableName="ins_user" domainObjectName="InsUser"></table> -->
+<!-- 		<table tableName="ins_user_ext" domainObjectName="InsUserExt"></table> -->
+<!-- 		<table tableName="sys_function" domainObjectName="SysFunction"></table> -->
+<!-- 		<table tableName="sys_function_user_permisssion" domainObjectName="SysFunctionUserPermission"></table> -->
+<!-- 		<table tableName="sys_role_user" domainObjectName="SysRoleUser"></table> -->
+<!-- 		<table tableName="sys_role" domainObjectName="SysRole"></table> -->
+<!-- 		<table tableName="sys_user" domainObjectName="SysUser"></table> -->
+		<table tableName="sys_role_function" domainObjectName="SysRoleFunction"></table>
 	</context>
 </generatorConfiguration>

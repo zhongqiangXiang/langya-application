@@ -16,22 +16,44 @@ import lombok.extern.slf4j.Slf4j;
 public class DataSourceReaderServiceImpl implements DataSourceReaderService{
 	Properties properties;
 	{
+		InputStream in = null;
+		InputStream in2 = null;
 	    try {
 	    	properties = new Properties();
 	    	// 使用ClassLoader加载properties配置文件生成对应的输入流
-	    	InputStream in = this.getClass().getClassLoader().getResourceAsStream("application.properties");
+	    	in = this.getClass().getClassLoader().getResourceAsStream("application.properties");
 	    	// 使用properties对象加载输入流
 			properties.load(in);
 			String profile = properties.getProperty("dataSource.profile");
 			if(StringUtils.isEmpty(profile)){
 			}else{
 				properties.clear();
-				properties.load(this.getClass().getClassLoader().getResourceAsStream("application-"+profile+".properties"));
+				in2 = this.getClass().getClassLoader().getResourceAsStream("dataSource-"+profile+".properties");
+				properties.load(in2);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			log.error("失败消息：{}",e.getMessage());
 			throw new RuntimeException(e.getMessage());
+		}finally{
+			if(in != null ){
+				try {
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+					log.error("失败消息：{}",e.getMessage());
+					throw new RuntimeException(e.getMessage());
+				}
+			}
+			if(in2 != null){
+				try {
+					in2.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+					log.error("失败消息：{}",e.getMessage());
+					throw new RuntimeException(e.getMessage());
+				}
+			}
 		}
 	}
 	
