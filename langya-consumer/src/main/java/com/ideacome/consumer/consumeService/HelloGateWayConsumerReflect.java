@@ -1,4 +1,4 @@
-package com.ideacome.consumer.provider;
+package com.ideacome.consumer.consumeService;
 
 import org.springframework.cloud.openfeign.FeignClient;
 

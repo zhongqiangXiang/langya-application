@@ -28,9 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/langya/langya-consumer/hello").permitAll()
-			.anyRequest()
-			.authenticated();
+			.antMatchers("/langya/langya-consumer/hello","/langya/langya-consumer/getInsUserExt").permitAll()
+			.anyRequest().authenticated();
 	}
 	
 	@Bean("passwordEncoder")

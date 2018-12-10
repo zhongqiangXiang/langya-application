@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableCircuitBreaker
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages={"com.ideacome.consumer.provider"})
+@EnableFeignClients(basePackages={"com.ideacome.consumer.consumeService"})
 @SpringBootApplication(scanBasePackages={"com.ideacome.consumer"})
 public class BootConsumerApplication {
 	public static void main(String[] args) {

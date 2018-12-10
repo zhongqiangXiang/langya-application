@@ -18,7 +18,7 @@ public class InsUserExtServiceController implements InsUserExtServiceControllerI
 	
 	@Override
 	public ResultVO getInsUserExtSelective(Long userId){
-		log.info("InsUserExtServiceController.getInsUserExtSelective：");
+		log.info("InsUserExtServiceController.getInsUserExtSelective：userId-{}",userId);
 		
 		return ResultVO.newSuccess(10000, "success", insUserExtServiceImpl.selectInsUserExtSelective(userId));
 	}

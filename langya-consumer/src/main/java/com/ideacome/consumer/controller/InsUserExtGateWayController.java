@@ -1,11 +1,13 @@
 package com.ideacome.consumer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ideacome.base.enums.ErrorEnum;
-import com.ideacome.consumer.provider.InsUserExtGateWayReflect;
+import com.ideacome.consumer.consumeService.InsUserExtGateWayReflect;
+import com.ideacome.consumer.vo.InsUserExtVO;
 import com.ideacome.services.vo.ResultVO;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -21,14 +23,14 @@ public class InsUserExtGateWayController{
 	@HystrixCommand(fallbackMethod = "getInsUserExtBackUp", commandProperties = {
 			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000") })
 	@RequestMapping("/getInsUserExt")
-	public ResultVO getInsUserExt(Long userId) {
-		log.info("receive param:userId-{}", userId);
-		return insUserExtGateWayReflect.getInsUserExtSelective(userId);
+	public ResultVO getInsUserExt(@RequestBody InsUserExtVO insUserExtVO) {
+		log.info("receive param:userId-{}", insUserExtVO.getUserId());
+		return insUserExtGateWayReflect.getInsUserExtSelective(insUserExtVO.getUserId());
 	}
 
-	public ResultVO getInsUserExtBackUp(Long userId) {
+	public ResultVO getInsUserExtBackUp(@RequestBody InsUserExtVO insUserExtVO) {
 
-		return ResultVO.newFailure(ErrorEnum.failure.getErrorCode(), "userId:"+userId+",失败："+ErrorEnum.failure.getErrorMSG());
+		return ResultVO.newFailure(ErrorEnum.failure.getErrorCode(), "userId:"+insUserExtVO.getUserId()+",失败："+ErrorEnum.failure.getErrorMSG());
 	}
 	
 }
