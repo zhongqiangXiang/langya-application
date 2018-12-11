@@ -17,5 +17,9 @@ public class MD5PasswordEncoder implements PasswordEncoder{
 		
 		return encodedPassword.equals(encode(rawPassword));
 	}
-
+	
+	public static void main(String[] args) {
+		String str = "123456";
+		System.out.println(new MD5PasswordEncoder().encode(str));
+	}
 }

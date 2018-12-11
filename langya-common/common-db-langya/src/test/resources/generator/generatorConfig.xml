@@ -35,11 +35,11 @@
 		<!-- <table tableName="live_course_channel" domainObjectName="LiveCourseChannel"></table> -->
 <!-- 		<table tableName="ins_user" domainObjectName="InsUser"></table> -->
 <!-- 		<table tableName="ins_user_ext" domainObjectName="InsUserExt"></table> -->
-<!-- 		<table tableName="sys_function" domainObjectName="SysFunction"></table> -->
+		<table tableName="sys_function" domainObjectName="SysFunction"></table>
 <!-- 		<table tableName="sys_function_user_permisssion" domainObjectName="SysFunctionUserPermission"></table> -->
 <!-- 		<table tableName="sys_role_user" domainObjectName="SysRoleUser"></table> -->
 <!-- 		<table tableName="sys_role" domainObjectName="SysRole"></table> -->
 <!-- 		<table tableName="sys_user" domainObjectName="SysUser"></table> -->
-		<table tableName="sys_role_function" domainObjectName="SysRoleFunction"></table>
+<!-- 		<table tableName="sys_role_function" domainObjectName="SysRoleFunction"></table> -->
 	</context>
 </generatorConfiguration>

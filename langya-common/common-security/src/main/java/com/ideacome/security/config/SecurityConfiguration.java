@@ -28,8 +28,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/langya/langya-consumer/hello","/langya/langya-consumer/getInsUserExt").permitAll()
-			.anyRequest().authenticated();
+			.antMatchers("/langya/**").authenticated()
+			.anyRequest().permitAll()
+			.and()
+			.formLogin().loginPage("/auth/loginRemind")//前端提供登陆页面地址
+			.loginProcessingUrl("/auth/form")//指定登陆的请求地址
+			.permitAll()
+			.and()
+			.logout().logoutUrl("/auth/logout").permitAll()
+			.and()
+			.csrf().disable();
 	}
 	
 	@Bean("passwordEncoder")
