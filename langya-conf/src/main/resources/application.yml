@@ -3,20 +3,20 @@ server:
 spring:
   application:
     name: langya-conf
-#  profiles:
-#    active: native
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          search-locations: classpath:/shared/langya-services
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/lucasXiang/langya
-          search-paths: langya-services,langya-gateway
-          default-label: master
+        native:
+          search-locations: classpath:/shared/langya-services,classpath:/shared/langya-gateway
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/lucasXiang/langya
+#          search-paths: langya-services,langya-gateway
+#          default-label: master
           
 eureka:
   client:

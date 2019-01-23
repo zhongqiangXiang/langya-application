@@ -1,0 +1,8 @@
+
+#zuul:
+#  routes:
+#    zuul-url: 
+#      path: /langya/**
+#      service-id: LANGYA-GATEWAY
+      
+
