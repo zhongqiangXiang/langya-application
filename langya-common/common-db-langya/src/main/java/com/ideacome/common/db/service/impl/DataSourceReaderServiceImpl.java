@@ -21,7 +21,7 @@ public class DataSourceReaderServiceImpl implements DataSourceReaderService{
 	    try {
 	    	properties = new Properties();
 	    	// 使用ClassLoader加载properties配置文件生成对应的输入流
-	    	in = this.getClass().getClassLoader().getResourceAsStream("application.properties");
+	    	in = this.getClass().getClassLoader().getResourceAsStream("dataSource.properties");
 	    	// 使用properties对象加载输入流
 			properties.load(in);
 			String profile = properties.getProperty("dataSource.profile");
