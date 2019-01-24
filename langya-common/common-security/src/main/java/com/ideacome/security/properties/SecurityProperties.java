@@ -1,8 +1,8 @@
 package com.ideacome.security.properties;
 
+import org.springframework.context.annotation.Configuration;
+
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
  * @Author: HanLong
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  * @Description:    可配置的属性
  */
 @Data
-@Component
-@ConfigurationProperties(prefix = "my.security")
+@Configuration
+//@ConfigurationProperties(prefix = "my.security")
 public class SecurityProperties {
     private BrowserProperties browser = new BrowserProperties();
 }

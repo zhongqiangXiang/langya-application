@@ -8,7 +8,7 @@ public interface SecurityConstants {
     /**
      * 默认登录页面
      */
-    String DEFAULT_LOGIN_PAGE_URL = "/login.html";
+    String DEFAULT_LOGIN_PAGE_URL = "/login";
     /**
      * 默认的用户名密码登录请求处理url
      */

@@ -34,10 +34,9 @@ zuul:
   host:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
-  
-  prefix: /langya
-  routes:
-    zuul-url: 
-      path: /langya-consumer/**
-      service-id: LANGYA-CONSUMER
+#  prefix: /langya
+#  routes:
+#    consumer-url: 
+#      path: /langya-consumer/**
+#      service-id: LANGYA-CONSUMER
       

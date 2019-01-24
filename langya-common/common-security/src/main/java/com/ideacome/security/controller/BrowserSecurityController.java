@@ -1,9 +1,10 @@
 package com.ideacome.security.controller;
 
-import com.ideacome.security.dto.BaseResponse;
-import com.ideacome.security.properties.SecurityConstants;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import com.ideacome.security.dto.BaseResponse;
+import com.ideacome.security.properties.SecurityConstants;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController

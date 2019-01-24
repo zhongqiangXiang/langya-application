@@ -16,8 +16,8 @@ import com.ideacome.security.vo.MD5PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)  //  启用方法级别的权限认证
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法级别的权限认证
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailSecurityService userDetailSecurityService;
 	@Autowired
@@ -32,22 +32,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		applyPasswordAuthenticationConfig(http);
-
+		applyAuthenticationConfig(http);
 
 	}
 
-	protected void applyPasswordAuthenticationConfig(HttpSecurity http) throws Exception {
-		http.formLogin()
-				.loginPage(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)                      // 登录页面回调
-				.loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)        // 自定义的登录接口
-				.successHandler(authenticationSuccessHandler)                                 // 认证成功回调
-				.failureHandler(authenticationFailedHandler);                                // 认证失败回调
+	protected void applyAuthenticationConfig(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers(SecurityConstants.DEFAULT_LOGIN_PAGE_URL, "/authentication/*")
+				.permitAll().anyRequest().authenticated()
+				.and().formLogin()
+				.loginPage(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL) 				 // 登录页面回调
+				.loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM) // 自定义的登录接口
+				.successHandler(authenticationSuccessHandler) 							 // 认证成功回调
+				.failureHandler(authenticationFailedHandler) 							 // 认证失败回调
+				;
+		http.csrf().disable();
 	}
-	
+
 	@Bean("passwordEncoder")
-	public PasswordEncoder getEncryPasswordEncoder(){
+	public PasswordEncoder getEncryPasswordEncoder() {
 		return new MD5PasswordEncoder();
 	}
-	
+
 }

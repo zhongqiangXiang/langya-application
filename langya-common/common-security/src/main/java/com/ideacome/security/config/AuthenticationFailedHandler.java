@@ -28,7 +28,8 @@ public class AuthenticationFailedHandler extends SimpleUrlAuthenticationFailureH
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException e) throws IOException, ServletException {
-		log.info("登录失败");
+		log.info("登录失败:" + e.getMessage());
+        log.info("username=>" + request.getParameter("username"));
 		// 设置状态码
 		response.setStatus(500);
 		// 将 登录失败 信息打包成json格式返回
