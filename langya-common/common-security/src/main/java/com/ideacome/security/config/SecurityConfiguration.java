@@ -45,7 +45,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	protected void applyAuthenticationConfig(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers(SecurityConstants.DEFAULT_LOGIN_PAGE_URL, "/authentication/*").permitAll()
+		http.authorizeRequests()
+				.antMatchers(SecurityConstants.DEFAULT_LOGIN_PAGE_URL, "/authentication/*").permitAll()
+				.antMatchers("/langya/langya-provider/*").hasAnyRole("loginTest")
 				.anyRequest().authenticated().and().formLogin()
 				.loginPage(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL) // 登录页面回调
 				.loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM) // 自定义的登录接口

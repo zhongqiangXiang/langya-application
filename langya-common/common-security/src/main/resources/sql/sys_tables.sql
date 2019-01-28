@@ -92,7 +92,7 @@ CREATE TABLE `sys_user` (
 
 
 -- 数据样例
-insert into `sys_function` (`id`, `fun_code`, `fun_name`, `fun_type`, `action_url`, `parent_id`, `icon`, `order_num`, `description`, `creator`, `modifier`, `add_time`, `modify_time`, `sys_flag`) values('387','loginTest','登陆测试','1','/login/test/','0',NULL,'0','登陆测试描述','admin1','admin2','2018-12-11 13:22:55','2018-12-11 13:22:55','1');
+insert into `sys_function` (`id`, `fun_code`, `fun_name`, `fun_type`, `action_url`, `parent_id`, `icon`, `order_num`, `description`, `creator`, `modifier`, `add_time`, `modify_time`, `sys_flag`) values('387','ROLE_loginTest','登陆测试','1','/login/test/','0',NULL,'0','登陆测试描述','admin1','admin2','2018-12-11 13:22:55','2018-12-11 13:22:55','1');
 insert into `sys_function_user_permisssion` (`id`, `function_id`, `user_id`, `permission_flag`, `creator`, `modifier`, `add_time`, `modify_time`, `sys_flag`) values('387','387','10144','1','admin1','admin2','2018-12-11 13:24:35','2018-12-11 13:24:35','1');
 insert into `sys_role` (`id`, `role_name`, `description`, `creator`, `modifier`, `add_time`, `modify_time`, `sys_flag`) values('122','管理员','管理员角色','adminor','adminor','2018-12-11 11:33:51','2018-12-11 11:33:51','1');
 insert into `sys_role_function` (`id`, `role_id`, `function_id`, `valid_flag`, `creator`, `modifier`, `add_time`, `modify_time`, `sys_flag`) values('387','122','387','1','admin1','admin2','2018-12-11 13:25:56','2018-12-11 13:25:56','1');
