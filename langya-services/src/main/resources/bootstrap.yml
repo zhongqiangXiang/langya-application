@@ -19,7 +19,7 @@ eureka:
     # 抓取服务列表
     registry-fetch-interval-seconds: 30
   instance:
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
     prefer-ip-address: true
     # 心跳设置，告诉服务器该实例仍在使用
     lease-renewal-interval-in-seconds: 5

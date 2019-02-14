@@ -3,8 +3,7 @@ package com.ideacome.security.properties;
 import lombok.Data;
 
 /**
- * @Author: HanLong
- * @Date: Create in 2018/3/27 21:45
+ * @Author: zhuting
  * @Description:    Session相关配置
  */
 @Data

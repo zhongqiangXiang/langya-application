@@ -19,10 +19,8 @@ import org.springframework.util.StreamUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.ideacome.security.properties.SecurityConstants;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
 import com.netflix.zuul.http.ServletInputStreamWrapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -37,10 +35,10 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class AccessTokenFilter extends ZuulFilter {
 
-	private List<String> uriExcluded = Stream.of(SecurityConstants.DEFAULT_LOGIN_PAGE_URL).collect(Collectors.toList());
+	private List<String> uriExcluded = Stream.of("").collect(Collectors.toList());
 
 	@Override
-	public Object run() throws ZuulException {
+	public Object run() {
 		RequestContext currentContext = RequestContext.getCurrentContext();
 		HttpServletRequest request = currentContext.getRequest();
 

@@ -4,14 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.ideacome.base.res.Result;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 该类无用，后续会删除
+ * @author Administrator
+ *
+ */
 @Slf4j
-@RestController
+//@RestController
 public class AuthRedirectController {
 	
 	@RequestMapping("/auth/loginRemind")

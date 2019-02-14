@@ -8,8 +8,10 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -53,6 +55,7 @@ public class DBCorePluginConfiguration {
 	
 	
 	@Bean("masterDataSource")
+	@Primary
 	public BasicDataSource getMasterDataSource(
 			DataSourceVO dataSourceVO
 			){
@@ -100,7 +103,8 @@ public class DBCorePluginConfiguration {
 	}
 	
 	@Bean("dataSource")
-	public DynamicDataSource getDynamicDataSource(BasicDataSource masterDataSource,BasicDataSource slaveDataSource){
+	public DynamicDataSource getDynamicDataSource(@Qualifier("masterDataSource") BasicDataSource masterDataSource,
+			@Qualifier("slaveDataSource") BasicDataSource slaveDataSource){
 		DynamicDataSource dynamicDataSource = new DynamicDataSource();
 		Map<Object, Object> targetDataSources = new HashMap<>();
 		targetDataSources.put("slave", slaveDataSource);
@@ -111,7 +115,7 @@ public class DBCorePluginConfiguration {
 	}
 	
 	@Bean("transactionManager")
-	public DataSourceTransactionManager getDataSourceTransactionManager(DynamicDataSource dataSource){
+	public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("dataSource")DynamicDataSource dataSource){
 		DataSourceTransactionManager dataSourceTransationManager = new DataSourceTransactionManager();
 		dataSourceTransationManager.setDataSource(dataSource);
 		

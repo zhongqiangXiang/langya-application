@@ -1,7 +1,5 @@
 package com.ideacome.security.properties.enums;
 
-import com.alibaba.fastjson.JSON;
-
 public enum LoginResponseType {
     /**
      * 跳转

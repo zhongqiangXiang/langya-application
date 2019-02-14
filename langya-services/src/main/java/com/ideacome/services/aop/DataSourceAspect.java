@@ -52,10 +52,10 @@ public class DataSourceAspect {
 		if (methodName.startsWith("add") || methodName.startsWith("create") || methodName.startsWith("insert")
 				|| methodName.startsWith("save") || methodName.startsWith("edit") || methodName.startsWith("update")
 				|| methodName.startsWith("delete") || methodName.startsWith("remove")) {
-			log.debug("切换到: master");
+			log.info("切换到: master");
 			DataSourceSwitcher.setMaster();
 		} else {
-			log.debug("切换到: slave");
+			log.info("切换到: slave");
 			DataSourceSwitcher.setSlave();
 		}
 	}

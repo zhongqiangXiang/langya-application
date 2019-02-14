@@ -5,8 +5,6 @@ import com.ideacome.security.properties.enums.LoginResponseType;
 import lombok.Data;
 
 /**
- * @Author: HanLong
- * @Date: Create in 2018/3/18 15:21
  * @Description:    浏览器登录认证相关配置
  */
 @Data

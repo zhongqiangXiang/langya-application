@@ -19,7 +19,7 @@ eureka:
     # 抓取服务列表
     registry-fetch-interval-seconds: 30
   instance:
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
     prefer-ip-address: true
     # 心跳设置，告诉服务器该实例仍在使用
     lease-renewal-interval-in-seconds: 5
@@ -34,12 +34,11 @@ zuul:
   host:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
-  prefix: /langya
   routes:
     consumer-url: 
-      path: /langya-consumer/**
+      path: /consumer/**
       service-id: LANGYA-CONSUMER
     provide-url:
-      path: /langya-provider/**
+      path: /provider/**
       service-id: LANGYA-SERVICES
       
