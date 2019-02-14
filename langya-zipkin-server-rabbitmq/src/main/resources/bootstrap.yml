@@ -1,18 +1,17 @@
 server:
-  port: 5237
+  port: 9440
 spring:
   application:
-    name: langya-consumer
-   #rabbitmq配置
-  rabbitmq:
-    host: 192.168.61.129
-    port : 5672
-    username: guest
-    password: guest
-  sleuth:
-    sampler:
-      percentage: 1.0
-    
+    name: langya-server-rabbitmq
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: LANGYA-CONF
+      fail-fast: true
+
 eureka:
   client:
     serviceUrl:
@@ -26,4 +25,11 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     # 告诉服务器如果10秒内未发送任何续约请求，则关闭该客户端
     lease-expiration-duration-in-seconds: 10
+    
+# 可访问全部敏感端口
+# /evn 服务的全部环境变量信息
+# /health 当前服务状态
+#endpoints:
+#  sensitive: false
+
     

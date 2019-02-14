@@ -33,4 +33,11 @@ public class InsUserExtGateWayController{
 		return ResultVO.newFailure(ErrorEnum.failure.getErrorCode(), "userId:"+insUserExtVO.getUserId()+",失败："+ErrorEnum.failure.getErrorMSG());
 	}
 	
+	@RequestMapping("/getInsUserExtById")
+	public ResultVO getInsUserExtById(Long userId) {
+		log.info("InsUserExtGateWayController.getInsUserExtById:param->{}",userId);
+		
+		return insUserExtGateWayReflect.getInsUserExtSelective(userId);
+	}
+	
 }

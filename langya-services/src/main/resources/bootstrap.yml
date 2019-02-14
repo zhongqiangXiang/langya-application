@@ -29,7 +29,7 @@ eureka:
 # 可访问全部敏感端口
 # /evn 服务的全部环境变量信息
 # /health 当前服务状态
-endpoints:
-  sensitive: false
+#endpoints:
+#  sensitive: false
 
     
