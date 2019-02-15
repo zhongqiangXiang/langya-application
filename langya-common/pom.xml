@@ -94,5 +94,6 @@
 		<module>common-db-langya</module>
 		<module>common-base</module>
 		<module>common-security</module>
+		<module>common-utils</module>
 	</modules>
 </project>

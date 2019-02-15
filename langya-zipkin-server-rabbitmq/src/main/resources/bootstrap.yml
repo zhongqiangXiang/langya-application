@@ -1,5 +1,3 @@
-server:
-  port: 9440
 spring:
   application:
     name: langya-zipkin-server-rabbitmq

@@ -9,7 +9,7 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/shared/langya-services,classpath:/shared/langya-gateway
+          search-locations: classpath:/shared/langya-services,classpath:/shared/langya-gateway,classpath:/shared/langya-db,classpath:/shared/langya-consumer,classpath:/shared/langya-zipkin-server-rabbitmq,classpath:/shared/langya-zipkin-server-es
 #  cloud:
 #    config:
 #      server:

@@ -1,3 +1,9 @@
+# for test in applicationStarting
+foo: hello-world (foo version 1) 
+
+server:
+  port: 8762
+# rabbitmq 配置信息
 spring:
   #rabbitmq配置
   rabbitmq:

@@ -1,8 +1,26 @@
-
-#zuul:
-#  routes:
-#    zuul-url: 
-#      path: /langya/**
-#      service-id: LANGYA-GATEWAY
-      
-
+server:
+  port: 9090
+ribbon:
+  eager-load:
+    enabled: false
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  routes:
+    consumer-url: 
+      path: /consumer/**
+      service-id: LANGYA-CONSUMER
+    provide-url:
+      path: /provider/**
+      service-id: LANGYA-SERVICES
+spring:
+  #rabbitmq配置
+  rabbitmq:
+    host: 192.168.61.129
+    port : 5672
+    username: guest
+    password: guest
+  sleuth:
+    sampler:
+      percentage: 1.0
