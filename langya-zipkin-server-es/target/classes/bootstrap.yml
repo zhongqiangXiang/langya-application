@@ -1,8 +1,8 @@
 server:
-  port: 9440
+  port: 9450
 spring:
   application:
-    name: langya-zipkin-server-rabbitmq
+    name: langya-zipkin-server-es
   profiles:
     active: dev
   cloud:

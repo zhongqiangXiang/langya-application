@@ -117,5 +117,6 @@
 		<module>langya-cache</module>
 		<module>langya-monitor</module>
 		<module>langya-zipkin-server-rabbitmq</module>
+		<module>langya-zipkin-server-es</module>
 	</modules>
 </project>
