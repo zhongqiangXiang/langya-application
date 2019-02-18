@@ -3,7 +3,7 @@ server:
 spring:
    #rabbitmq配置
   rabbitmq:
-    host: 192.168.61.129
+    host: local.service.com
     port : 5672
     username: guest
     password: guest
