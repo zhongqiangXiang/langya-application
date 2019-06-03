@@ -14,7 +14,7 @@ import com.ideacome.common.util.HttpClientUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service
+//@Service
 public class DataSourceReaderServiceImpl implements DataSourceReaderService{
 	
 	Properties properties;
